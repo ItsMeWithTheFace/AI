@@ -2,6 +2,7 @@ import com.orbischallenge.ctz.Constants;
 import com.orbischallenge.ctz.objects.EnemyUnit;
 import com.orbischallenge.ctz.objects.FriendlyUnit;
 import com.orbischallenge.ctz.objects.World;
+import com.orbischallenge.ctz.objects.enums.Direction;
 
 
 public class PlayerAI {
@@ -19,5 +20,8 @@ public class PlayerAI {
 	 */
     public void doMove(World world, EnemyUnit[] enemyUnits, FriendlyUnit[] friendlyUnits) {
 		//Your glorious AI code goes here.
+      for (int i = 0; i < 3; i++) {
+        friendlyUnits[i].move(friendlyUnits[2].getPosition());
+      }
     }
 }

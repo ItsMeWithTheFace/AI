@@ -1,0 +1,72 @@
+[142978] Using port 4461
+Server waiting for client
+Connected player with UUID JavaAI
+Assigned index 1 (Blue)
+[1] JavaAI (Comm open) - sending GET_READY...
+[1] JavaAI (Comm open) - Ready!
+[152009] Asking 1 for move
+[152009] Asking 0 for move
+[152094] Got 1's move
+[197440] Got 0's move
+[197441] ===== Move Frame 0 ===========
+[197441] ==============================
+XXXXXXXXXXXXXXX
+X      X      X
+X  a   X   d  X
+XXXX bXXXc XXXX
+X  +       +  X
+X      +      X
+X             X
+XN           NX
+X             X
+X      +      X
+X  +       +  X
+XXXX  XXX  XXXX
+X h   gXf   e X
+X      X      X
+XXXXXXXXXXXXXXX
+[197980] Asking 1 for move
+[197980] Asking 0 for move
+[197992] Got 1's move
+[260398] Got 0's move
+[260398] ===== Move Frame 1 ===========
+[260398] ==============================
+XXXXXXXXXXXXXXX
+X      X      X
+X      X   d  X
+XXXXa XXXc XXXX
+X  +  b    +  X
+X      +      X
+X             X
+XN           NX
+X             X
+X      +      X
+X  +       +  X
+XXXX  XXX  XXXX
+X h   gXf   e X
+X      X      X
+XXXXXXXXXXXXXXX
+[260915] Asking 0 for move
+[260915] Asking 1 for move
+[260927] Got 1's move
+[317315] Got 0's move
+[317315] ===== Move Frame 2 ===========
+[317315] ==============================
+XXXXXXXXXXXXXXX
+X      X      X
+X      X      X
+XXXXa XXX dXXXX
+X  +  b c  +  X
+X      +      X
+X             X
+XN           NX
+X             X
+X      +      X
+X  +       +  X
+XXXX  XXX  XXXX
+X h   gXf   e X
+X      X      X
+XXXXXXXXXXXXXXX
+[317821] Asking 0 for move
+[317821] Asking 1 for move
+[317833] Got 1's move

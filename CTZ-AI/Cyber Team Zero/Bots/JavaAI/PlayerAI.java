@@ -6,6 +6,7 @@ import com.orbischallenge.ctz.objects.enums.Direction;
 
 
 public class PlayerAI {
+  private int SQUAD_LEADER = 0;
 
     public PlayerAI() {
 		//Any initialization code goes here.
@@ -20,8 +21,10 @@ public class PlayerAI {
 	 */
     public void doMove(World world, EnemyUnit[] enemyUnits, FriendlyUnit[] friendlyUnits) {
 		//Your glorious AI code goes here.
-      for (int i = 0; i <= 3; i++) {
-        friendlyUnits[i].move(friendlyUnits[0].getPosition());
-      }
+       for (int i = 0; i <= 3; i++) {
+         friendlyUnits[i].move(friendlyUnits[SQUAD_LEADER].getPosition());
+       }
+       friendlyUnits[SQUAD_LEADER].move(new Point(1, 2));
+       
     }
 }

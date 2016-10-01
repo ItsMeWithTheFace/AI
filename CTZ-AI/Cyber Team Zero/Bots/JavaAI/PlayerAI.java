@@ -24,7 +24,7 @@ public class PlayerAI {
        for (int i = 0; i <= 3; i++) {
          friendlyUnits[i].move(friendlyUnits[SQUAD_LEADER].getPosition());
        }
-       friendlyUnits[SQUAD_LEADER].move(new Point(1, 2));
+       friendlyUnits[SQUAD_LEADER].move(new Point(1, 2));z
        
     }
 }

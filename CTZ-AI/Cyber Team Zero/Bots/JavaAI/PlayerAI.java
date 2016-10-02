@@ -1,13 +1,17 @@
 import com.orbischallenge.ctz.Constants;
+import com.orbischallenge.ctz.objects.ControlPoint;
 import com.orbischallenge.ctz.objects.EnemyUnit;
 import com.orbischallenge.ctz.objects.FriendlyUnit;
 import com.orbischallenge.ctz.objects.World;
 import com.orbischallenge.ctz.objects.enums.Direction;
-import com.orbischallenge.game.engine.Point;
+import com.orbischallenge.ctz.objects.enums.ShotResult;
+import com.orbischallenge.ctz.objects.enums.Team;
+import com.orbischallenge.game.engine.*;
 // import java.lang.Math;
 
 public class PlayerAI {
   public EnemyUnit enemyToKill;
+  public ControlPoint targetControlPoint;
 
   public PlayerAI() {
     // Any initialization code goes here.
@@ -24,13 +28,16 @@ public class PlayerAI {
     // Your glorious AI code goes here.
     //Here it goes
     // Alpha moves to control point nearest to it, others follow
-    if (world.getNearestControlPoint(friendlyUnits[0].getPosition()).getControllingTeam() != Team.AMBER) {
-      friendlyUnits[0].move(world.getNearestControlPoint(friendlyUnits[0].getPosition()).getPosition());
+    targetControlPoint = world.getNearestControlPoint(friendlyUnits[0].getPosition());
+    if (targetControlPoint.getControllingTeam() != Team.AMBER) {
+      friendlyUnits[0].move(targetControlPoint.getPosition());
       for(int i = 0; i <= 3; i++){
         friendlyUnits[i].move(friendlyUnits[0].getPosition());
       }
     }
     else {
+      targetControlPoint = world.getNearestControlPoint(targetControlPoint.getPosition());
+    }
       // check for any enemies nearby any friendly units. if so, gang up on them
       for (int i = 0; i <= 3; i++) {
         for (int j = 0; j<=3; j++) {
@@ -40,15 +47,12 @@ public class PlayerAI {
           }
         }
         // if there exists an enemy to kill, get it's position and go after/kill it
-        if (enemyToKill) {
+        if (enemyToKill != null) {
           if (friendlyUnits[i].checkShotAgainstEnemy(enemyToKill) == ShotResult.CAN_HIT_ENEMY)
             friendlyUnits[i].shootAt(enemyToKill);
           else
             friendlyUnits[i].move(enemyToKill.getPosition());
         }
       }
-
-    }
-
   }
 }

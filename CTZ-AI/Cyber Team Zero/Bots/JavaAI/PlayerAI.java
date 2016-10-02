@@ -27,16 +27,16 @@ public class PlayerAI {
   public void doMove(World world, EnemyUnit[] enemyUnits, FriendlyUnit[] friendlyUnits) {
     // Your glorious AI code goes here.
     //Here it goes
+    ControlPoint[] a = world.get
     // Alpha moves to control point nearest to it, others follow
     targetControlPoint = world.getNearestControlPoint(friendlyUnits[0].getPosition());
-    if (targetControlPoint.getControllingTeam() != Team.AMBER) {
+    targetControlPoint = world.getNearestControlPoint(targetControlPoint.getPosition());
+    if (targetControlPoint.getControllingTeam() == Team.opposite(friendlyUnits[0].getTeam()) ||
+        targetControlPoint.getControllingTeam() == Team.NONE) {
       friendlyUnits[0].move(targetControlPoint.getPosition());
       for(int i = 0; i <= 3; i++){
         friendlyUnits[i].move(friendlyUnits[0].getPosition());
       }
-    }
-    else {
-      targetControlPoint = world.getNearestControlPoint(targetControlPoint.getPosition());
     }
       // check for any enemies nearby any friendly units. if so, gang up on them
       for (int i = 0; i <= 3; i++) {

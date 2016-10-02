@@ -12,6 +12,7 @@ import com.orbischallenge.game.engine.*;
 public class PlayerAI {
   public EnemyUnit enemyToKill;
   public ControlPoint targetControlPoint;
+  public int p = 0;
 
   public PlayerAI() {
     // Any initialization code goes here.
@@ -27,15 +28,19 @@ public class PlayerAI {
   public void doMove(World world, EnemyUnit[] enemyUnits, FriendlyUnit[] friendlyUnits) {
     // Your glorious AI code goes here.
     //Here it goes
+    ControlPoint[] a = world.getControlPoints();
     // Alpha moves to control point nearest to it, others follow
     targetControlPoint = world.getNearestControlPoint(friendlyUnits[0].getPosition());
-    targetControlPoint = world.getNearestControlPoint(targetControlPoint.getPosition());
+    targetControlPoint = a[p];
     if (targetControlPoint.getControllingTeam() == Team.opposite(friendlyUnits[0].getTeam()) ||
         targetControlPoint.getControllingTeam() == Team.NONE) {
       friendlyUnits[0].move(targetControlPoint.getPosition());
       for(int i = 0; i <= 3; i++){
         friendlyUnits[i].move(friendlyUnits[0].getPosition());
       }
+    }
+    else {
+      p++;
     }
       // check for any enemies nearby any friendly units. if so, gang up on them
       for (int i = 0; i <= 3; i++) {

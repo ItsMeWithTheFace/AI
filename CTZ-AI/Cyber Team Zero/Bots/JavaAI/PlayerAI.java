@@ -27,7 +27,6 @@ public class PlayerAI {
   public void doMove(World world, EnemyUnit[] enemyUnits, FriendlyUnit[] friendlyUnits) {
     // Your glorious AI code goes here.
     //Here it goes
-    ControlPoint[] a = world.get
     // Alpha moves to control point nearest to it, others follow
     targetControlPoint = world.getNearestControlPoint(friendlyUnits[0].getPosition());
     targetControlPoint = world.getNearestControlPoint(targetControlPoint.getPosition());

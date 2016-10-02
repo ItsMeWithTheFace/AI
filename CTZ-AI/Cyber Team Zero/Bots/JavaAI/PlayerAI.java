@@ -54,5 +54,6 @@ public class PlayerAI {
             friendlyUnits[i].move(enemyToKill.getPosition());
         }
       }
+
   }
 }
